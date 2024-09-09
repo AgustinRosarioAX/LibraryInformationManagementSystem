@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+{% block main_content %}
+<main role="main">
+<div class="jumbotron">
+    <div class="container">
+        <img src="{% static '/library_logo_big.png' %}" class="rounded float-start" alt="LIMS" height="200"
+             style="margin-right : 20px ">
+        <h1 class="display-2"> Hello readers!</h1>
+        <h5><p>Welcome to Annai Illam Library. We have a large collection of books to cater the reading needs of all kinds of
+            readers </p></h5>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg">Browse our collection</button>
+        </p>
+
+    </div>
+
+</div>
+<div class="container ">
+    <div class="row">
+        <div class="col">
+            <h2>Why reading is important?</h2>
+            <p>Reading opens up doors to new worlds, provides entertainment, boosts the imagination, and has positive neurological and psychological benefits.</p>
+        </div>
+
+        <div class="col">
+            <h2>Key benefits</h2>
+            <ul>
+                <li>Reading Improves Your Memory</li>
+                <li>Reading Increases Your General Knowledge</li>
+                <li>Reading Enhances Your Imagination</li>
+                <li>Reading Develops Your Critical Thinking Skills</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h2>Thought of the day</h2>
+            <p>“Everyone wants happiness, no one wants pain, but you can’t make a rainbow without a little rain. – Zion Lee”</p>
+        </div>
+    </div>
+    <hr>
+</div>
+    </main>
+<footer class="container"> <p>Annai Illam Library 2024</p></footer>
+{% endblock %}

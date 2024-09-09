@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+{% block main_content %}
+<div class="container">
+    <h1>My Bag</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Borrowed Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borrowed_book in borrowed_books %}
+                <tr>
+                    <td>{{ borrowed_book.book.title }}</td>
+                    <td>{{ borrowed_book.book.author }}</td>
+                    <td>{{ borrowed_book.book.isbn }}</td>
+                    <td>{{ borrowed_book.borrowed_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

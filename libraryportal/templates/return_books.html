@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+{% block main_content %}
+<div class="container">
+    <h2>Return Books</h2>
+    <form method="POST" action="/return/">
+        {% csrf_token %}
+        <input type="text" name="reference_id" placeholder="Enter your reference ID" required>
+        <button type="submit">Check Borrowed Books</button>
+    </form>
+
+    {% if borrowed_books %}
+    <div class="row mt-4">
+        {% for book in borrowed_books %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.book_title }}</h5>
+                    <form method="POST" action="/return/">
+                        {% csrf_token %}
+                        <input type="hidden" name="book_id" value="{{ book.book_id }}">
+                        <input type="hidden" name="reference_id" value="{{ book.reference_id }}">
+                        <button type="submit" name="return" class="btn btn-success">Return</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

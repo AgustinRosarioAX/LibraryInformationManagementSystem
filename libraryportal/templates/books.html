@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+{% block main_content %}
+<div class="container">
+    <h2>Books</h2>
+    <form method="POST" action="/books/">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Search for books...">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="row mt-4">
+        {% for book in books %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ book.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="Book Cover">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+                    <p class="card-text">{{ book.volumeInfo.authors|join:", " }}</p>
+                    <form method="POST" action="/mybag/">
+                        {% csrf_token %}
+                        <input type="hidden" name="book_id" value="{{ book.id }}">
+                        <input type="hidden" name="book_title" value="{{ book.volumeInfo.title }}">
+                        <input type="text" name="reference_id" placeholder="Enter your reference ID" required>
+                        <button type="submit">Add to Bag</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
