@@ -1,1 +1,1 @@
-This is a Library Mnagement System built using python django.
+This is a Library Management System application called 'AnnaiIllam Library' which produces thousands of books from an external api. This website allows the  user to buy and return books and has the administrative access only for the admin user which allows them to perform the CRUD functions.python django
